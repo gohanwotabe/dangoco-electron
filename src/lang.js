@@ -3,6 +3,9 @@ Copyright 2018 gohanwotabe
 
 dangoco client language
 */
+
+"use strict";
+
 let i18n=require('i18n'),
 		Path=require('path'),
 		{app} = require('electron');
@@ -25,4 +28,7 @@ i18n.configure({
         console.log('[i18n]error', msg);
     },
 });
-i18n.setLocale(app.getLocale());
+
+app.once('ready',()=>{
+	i18n.setLocale(app.getLocale());
+});

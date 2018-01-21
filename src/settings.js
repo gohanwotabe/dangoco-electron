@@ -32,9 +32,9 @@ app.on('active',()=>{
 	}).once('ready-to-show', () => {
 		//for macos
 		app.dock.show();
-		app.dock.setIcon(__dirname+'/ui/res/pic/icon.png');
+		app.dock.setIcon(__dirname+'/ui/res/pic/dangoco.png');
 
-		
+
 		settingsWindow.show();
 	});
 

@@ -13,10 +13,12 @@ process.on('uncaughtException',function(e){//prevent server from stoping when un
 
 
 const {app}=require('electron');
+app.setName('dangoco');
 
-app.dock.setIcon(__dirname+'/ui/res/pic/icon.png')
+// app.dock.setIcon(__dirname+'/ui/res/pic/icon.png');
 
 
 require('./lang.js');
 require('./tray.js');
+require('./appMenu.js');
 require('./settings.js');

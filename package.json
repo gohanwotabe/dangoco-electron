@@ -1,5 +1,6 @@
 {
   "name": "dangoco-electron",
+  "productName":"dangoco",
   "version": "0.0.1",
   "description": "dangoco client",
   "main": "index.js",
