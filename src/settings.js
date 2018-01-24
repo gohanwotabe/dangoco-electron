@@ -28,17 +28,17 @@ app.on('active',()=>{
 	settingsWindow.loadURL(`file://${__dirname}/ui/page/index.html`);
 	settingsWindow.once('closed',e=>{
 		global.settingsWindow=null;
-		app.dock.hide();
+		app.dock&&app.dock.hide();
 	}).once('ready-to-show', () => {
 		//for macos
-		app.dock.show();
-		app.dock.setIcon(__dirname+'/ui/res/pic/dangoco.png');
+		app.dock&&app.dock.show();
+		app.dock&&app.dock.setIcon(__dirname+'/ui/res/pic/dangoco.png');
 
 
 		settingsWindow.show();
 	});
 
-	settingsWindow.webContents.openDevTools({mode:'detach'});
+	// settingsWindow.webContents.openDevTools({mode:'detach'});
 
 }).on('window-all-closed', () => {
 	//not quit

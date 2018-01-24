@@ -6,20 +6,22 @@ Copyright 2017 gohanwotabe
 
 const {app} = require('electron')
 
-app.dock.hide();
+app.setName('dangoco');
+app.dock&&app.dock.hide();
 
 //only allow one instance
-const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-	app.emit('active');
-});
-
-if (isSecondInstance) {
-  app.quit();
-  return;
+if(  app.makeSingleInstance( (commandLine,workingDirectory)=>app.emit('active') )  ){
+	app.quit();
+	return;
 }
 
-//change userdata path to working directory on platforms except macos
-if(process.platform!=='drawin')
-	app.setPath('appData', __dirname+'/data');
+
+const configStore=require('electron-store');
+//load config
+const configOpt={};
+if(process.platform!=='drawin')//change userdata path to working directory on platforms except macos
+	configOpt.cwd=__dirname+'/data';
+global.clientConfig=new configStore(configOpt);
+console.debug("config",clientConfig.path,clientConfig.store)
 
 require('./src/main.js');//load main js
