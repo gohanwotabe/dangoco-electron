@@ -3,6 +3,7 @@ Copyright 2017 gohanwotabe
 */
 'use strict';
 
+if(!console.debug)console.debug=console.log;
 
 const {app} = require('electron')
 
