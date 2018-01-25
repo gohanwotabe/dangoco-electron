@@ -25,6 +25,7 @@ app.on('active',()=>{
 		disableAutoHideCursor:true,
 		icon:__dirname+'/ui/res/pic/icon.png',
 	});
+	settingsWindow.setMenu(null);
 	settingsWindow.loadURL(`file://${__dirname}/ui/page/index.html`);
 	settingsWindow.once('closed',e=>{
 		global.settingsWindow=null;
