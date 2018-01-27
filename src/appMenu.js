@@ -8,7 +8,39 @@ dangoco client settings window
 const {Menu} = require('electron');
 
 if (process.platform === 'darwin') {
-	const menu = Menu.buildFromTemplate([]);
-	Menu.setApplicationMenu(menu);
+	app.once('ready',()=>{
+		const menu = Menu.buildFromTemplate([
+			{
+				label: app.getName(),
+				submenu:[
+					{role: 'quit',label:__('Quit')}
+				]
+			},
+			{
+				label: __('Edit'),
+				submenu: [
+					{role: 'undo',label:__('Undo')},
+					{role: 'redo',label:__('Redo')},
+					{type: 'separator'},
+					{role: 'cut',label:__('Cut')},
+					{role: 'copy',label:__('Copy')},
+					{role: 'paste',label:__('Paste')},
+					{role: 'selectall',label:__('Select All')}
+				]
+			},
+			{
+				role: 'help',
+				label: __('Help'),
+				submenu: [
+					{
+						label: __('GitHub'),
+						click () { require('electron').shell.openExternal('https://github.com/dangoco/dangoco-electron') }
+					}
+				]
+			}
+		]);
+		Menu.setApplicationMenu(menu);
+	});
+	
 }
 

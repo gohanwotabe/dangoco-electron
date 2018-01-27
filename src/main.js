@@ -15,3 +15,7 @@ require('./lang.js');//language
 require('./tray.js');//tray icon
 require('./appMenu.js');//app menu (for macos)
 require('./settings.js');//settings window
+
+app.once('ready',()=>{
+	app.setName(__('dangoco'));
+})

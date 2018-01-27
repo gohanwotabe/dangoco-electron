@@ -7,6 +7,7 @@ if(!console.debug)console.debug=console.log;
 
 const {app} = require('electron')
 
+global.app=app;
 app.setName('dangoco');
 app.dock&&app.dock.hide();
 

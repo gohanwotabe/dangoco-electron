@@ -15,8 +15,8 @@ app.on('active',()=>{
 		return;
 	}
 	settingsWindow = new BrowserWindow({
-		width: 800, 
-		height: 600,
+		width: 600, 
+		height: 450,
 		show: false,
 		resizable:false,
 		maximizable:false,
@@ -26,7 +26,9 @@ app.on('active',()=>{
 		icon:__dirname+'/ui/res/pic/icon.png',
 	});
 	settingsWindow.setMenu(null);
-	settingsWindow.loadURL(`file://${__dirname}/ui/page/index.html`);
+	settingsWindow.loadURL(`file://${__dirname}/ui/page/settings.html`);
+	settingsWindow.webContents.setVisualZoomLevelLimits(1,1);
+	settingsWindow.webContents.setLayoutZoomLevelLimits(1,1);
 	settingsWindow.once('closed',e=>{
 		global.settingsWindow=null;
 		app.dock&&app.dock.hide();
@@ -39,10 +41,14 @@ app.on('active',()=>{
 		settingsWindow.show();
 	});
 
-	// settingsWindow.webContents.openDevTools({mode:'detach'});
+	settingsWindow.webContents.openDevTools({mode:'detach'});
 
 }).on('window-all-closed', () => {
 	//not quit
 }).on('activate', () => {
 	app.emit('active');
-})
+}).once('ready',()=>{
+	if(!clientConfig.server || clientConfig.server.length===0){
+		app.emit('active');//active the settings window if there is no server set
+	}
+});
