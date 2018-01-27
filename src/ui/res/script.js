@@ -1,6 +1,8 @@
-var webFrame = require('electron').webFrame;
+const electron=require('electron');
+var {webFrame} = electron;
 webFrame.setVisualZoomLevelLimits(1, 1);
 webFrame.setLayoutZoomLevelLimits(0, 0);
+
 
 const $=document.querySelector.bind(document),
 	$$=document.querySelectorAll.bind(document);
@@ -23,6 +25,7 @@ window.addEventListener('load',()=>{
 		let t=e.target;
 		if(t.className='side_button'){
 			if(t.classList.contains('active'))return;
+			remote.getCurrentWindow().setTitle(`${t.title} - ${__('dangoco')}`);
 			displayingPage&&$(`#side #${displayingPage}`).classList.remove('active');
 			displayingPage&&$(`#main #${displayingPage}`).classList.remove('active');
 			$(`#main #${t.id}`).classList.add('active');
@@ -30,5 +33,9 @@ window.addEventListener('load',()=>{
 			displayingPage=t.id;
 		}
 	});
-	$(`#side #server`).click();
+	$(`#side ${location.hash}`).click();
+})
+
+electron.ipcRenderer.on('active_page', (event, page) => {
+	$(`#side #${page}`).click();
 })

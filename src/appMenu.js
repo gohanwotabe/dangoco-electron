@@ -28,16 +28,6 @@ if (process.platform === 'darwin') {
 					{role: 'selectall',label:__('Select All')}
 				]
 			},
-			{
-				role: 'help',
-				label: __('Help'),
-				submenu: [
-					{
-						label: __('GitHub'),
-						click () { require('electron').shell.openExternal('https://github.com/dangoco/dangoco-electron') }
-					}
-				]
-			}
 		]);
 		Menu.setApplicationMenu(menu);
 	});

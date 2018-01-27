@@ -1,16 +1,31 @@
-body{margin: 0;padding: 0;
-
-	background-color: #d7d9da;}
+body{
+	margin: 0;
+	padding: 0;
+	background-color: #d7d9da;
+	cursor: default;
+	user-select:none;
+}
+input{
+	user-select:none;
+	cursor: text;
+    width: 14em;
+    padding: 0.3em;
+    box-sizing: border-box;
+}
+select,input{
+	outline: none;
+}
+button{
+	padding: .3em 1.3em;
+}
 #side{
 	position: fixed;
 	z-index: 999;
 	height: 100%;
 }
-#side{
-}
 #side .side_button{
-	width:50px;
-	height: 50px;
+	width:34px;
+	height: 34px;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 65%;
@@ -24,16 +39,18 @@ body{margin: 0;padding: 0;
 	background-color: rgba(255,255,255,.4);
 }
 #main{
-	padding-left: 50px; 
+	padding-left: 34px; 
 	width: 100%;
 	box-sizing: border-box;
 	min-height: 100%;
 }
 
+/*sub_page*/
 .sub_page{
 	padding: .6em;
 	position: relative;
 	display: none;
+	box-sizing: border-box;
 	min-height: 100%;
 	background-color: rgba(255,255,255,.4);
 }
@@ -50,5 +67,15 @@ body{margin: 0;padding: 0;
 	padding: .4em;
 }
 #server_settings_frame #server_list{
-	width: 13em;
+	width: 15em;
+	margin-bottom: 0.6em;
+}
+#server_settings_frame #server_info{
+	flex-grow:1;
+	text-align: right;
+	position: relative;
+	font-size: 0.8em;
+}
+#server_settings_frame #server_info > div{
+	margin-bottom: .2em;
 }

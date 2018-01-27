@@ -16,6 +16,7 @@ i18n.configure({
     syncFiles: true,
     directory: Path.resolve(__dirname,'ui/lang'),
     register: global,
+    autoReload: true,
     logDebugFn: function (msg) {
         console.log('[i18n]debug', msg);
     },

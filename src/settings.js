@@ -9,24 +9,25 @@ const {app, Menu, BrowserWindow} = require('electron');
 global.settingsWindow=null;
 
 
-app.on('active',()=>{
+app.on('active',(page='server')=>{
 	if(global.settingsWindow){//show the window if it has been created
+		settingsWindow.webContents.send('active_page',page)
 		settingsWindow.show();
 		return;
 	}
 	settingsWindow = new BrowserWindow({
-		width: 600, 
-		height: 450,
+		width: 535, 
+		height: 548,
 		show: false,
-		resizable:false,
+		// resizable:false,
 		maximizable:false,
 		// minimizable:false,
-		title:`${__('Settings')} - ${__('dangoco')}`,
+		title:`${__('dangoco')}`,
 		disableAutoHideCursor:true,
 		icon:__dirname+'/ui/res/pic/icon.png',
 	});
 	settingsWindow.setMenu(null);
-	settingsWindow.loadURL(`file://${__dirname}/ui/page/settings.html`);
+	settingsWindow.loadURL(`file://${__dirname}/ui/page/index.html#${page}`);
 	settingsWindow.webContents.setVisualZoomLevelLimits(1,1);
 	settingsWindow.webContents.setLayoutZoomLevelLimits(1,1);
 	settingsWindow.once('closed',e=>{

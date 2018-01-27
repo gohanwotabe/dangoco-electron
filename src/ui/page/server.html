@@ -1,0 +1,17 @@
+<div id="server_settings_frame">
+	<div style="flex-grow:0;">
+		<select id="server_list" size=16>
+			<option value="1">test</option>
+		</select>
+		<br>
+		<button trans>{{New}}</button>&nbsp;<button trans>{{Delete}}</button>
+	</div>
+	<div id="server_info">
+		<div><span trans>{{Server Name}}</span>&nbsp;:&nbsp;<input type="text" name="serverName"></div>
+		<div><span trans>{{Server Address}}</span>&nbsp;:&nbsp;<input type="text" name="serverAddress"></div>
+		<div style="display: flex;line-height: 1.8em;">
+			<input placeholder="{{User Name}}" trans="placeholder" type="text" name="user" style="width:auto;flex-grow:.4;">
+			&nbsp;:&nbsp;
+			<input placeholder="{{Password}}" trans="placeholder" type="password" name="password" style="width:auto;flex-grow:.4;"></div>
+	</div>
+</div>

@@ -15,12 +15,13 @@ window.addEventListener('load',()=>{
 		let trans=e.getAttribute('trans');
 		let a=(trans?e.getAttribute(trans):e.innerHTML).match(translateField);
 		if(a){
+			let _t=__(a[1]);
 			if(trans){
-				e.setAttribute(trans,__(a[1]));
+				e.setAttribute(trans,_t);
 			}else{
-				e.innerHTML=__(a[1]);
+				e.innerHTML=_t;
 			}
+			console.debug('trans:',a[1],_t);
 		}
-		console.debug('trans:',a[1],e.innerHTML);
 	});
 });

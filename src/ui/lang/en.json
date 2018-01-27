@@ -1,11 +1,8 @@
 {
-	"Open Settings": "Open Settings",
 	"Quit": "Quit",
 	"Settings": "Settings",
 	"dangoco": "dangoco",
-	"Server list": "Server list",
 	"Info": "Info",
-	"Servers": "Servers",
 	"Edit": "Edit",
 	"GitHub": "GitHub",
 	"Help": "Help",
@@ -14,5 +11,17 @@
 	"Cut": "Cut",
 	"Copy": "Copy",
 	"Paste": "Paste",
-	"Select All": "Select All"
+	"Select All": "Select All",
+	"Connection": "Connection",
+	"About": "About",
+	"Server Settings": "Server Settings",
+	"Server": "Server",
+	"Connection List": "Connection List",
+	"Disconnect All": "Disconnect All",
+	"New": "New",
+	"Delete": "Delete",
+	"Server Address": "Server Address",
+	"Server Name": "Server Name",
+	"User Name": "User Name",
+	"Password": "Password"
 }
