@@ -44,7 +44,8 @@ app.on('ready', () => {
 		}}
 	]);
 
-	trayIcon.on('right-click',()=>{trayIcon.popUpContextMenu()});//enable right click on tary icon
+	trayIcon.on('right-click',()=>trayIcon.popUpContextMenu());//enable right click on tary icon
+	trayIcon.on('double-click',()=>app.emit('active'));
 
 	trayIcon.setContextMenu(trayMenu);
 });

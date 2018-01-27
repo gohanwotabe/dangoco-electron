@@ -14,14 +14,14 @@
 	"Paste": "ペスト",
 	"Select All": "全て選択",
 	"Connection": "接続",
-	"About": "About",
+	"About": "について",
 	"Server Settings": "サーバー設定",
-	"Connection List": "Connection List",
-	"Disconnect All": "Disconnect All",
-	"New": "New",
-	"Delete": "Delete",
-	"Server Address": "Server Address",
-	"Server Name": "Server Name",
-	"User Name": "User Name",
-	"Password": "Password"
+	"Connection List": "接続リスト",
+	"Disconnect All": "すべてを切断",
+	"New": "追加する",
+	"Delete": "削除",
+	"Server Address": "サーバーアドレス",
+	"Server Name": "サーバーの名",
+	"User Name": "ユーザー",
+	"Password": "パスワード"
 }
