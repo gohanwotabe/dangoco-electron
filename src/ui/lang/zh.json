@@ -58,5 +58,6 @@
 	"Forward Rule": "转发规则",
 	"project url": "项目地址",
 	"uptime": "运行时间",
-	"_msg_in_info_": "感谢所有贡献者"
+	"_msg_in_info_": "感谢所有贡献者",
+	"client version": "客户端版本"
 }

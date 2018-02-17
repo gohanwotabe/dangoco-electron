@@ -57,5 +57,6 @@
 	"Forward Rule": "Forward Rule",
 	"project url": "project url",
 	"uptime": "uptime",
-	"_msg_in_info_": "Thanks for all contributors."
+	"_msg_in_info_": "Thanks for all contributors.",
+	"client version": "client version"
 }

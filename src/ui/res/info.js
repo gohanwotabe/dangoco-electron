@@ -1,3 +1,6 @@
+//client version
+$('#client_version').innerText=require('../../../package.json').version;
+
 //set dangoco version
 $('#dangoco_version').innerText=require('dangoco/package.json').version;
 
