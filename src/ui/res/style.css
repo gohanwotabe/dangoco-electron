@@ -59,6 +59,7 @@ fieldset{
 	display: none;
 	box-sizing: border-box;
 	min-height: 150px;
+	overflow-x: none;
 }
 .sub_page.active{
 	display: block;
@@ -102,5 +103,5 @@ fieldset{
 
 /*info page*/
 #info_frame{
-	
+
 }
