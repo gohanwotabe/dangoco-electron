@@ -1,11 +1,20 @@
-const electron=require('electron');
+const electron=require('electron'),
+	shell = electron.shell;
+
+window.remote=electron.remote;
+window.remoteProcess=remote.process;
+window.clientConfig=remote.getGlobal('clientConfig');
+window.settingWindow=remote.getCurrentWindow();
+
+
+//prevent zoom
 var {webFrame} = electron;
 webFrame.setVisualZoomLevelLimits(1, 1);
 webFrame.setLayoutZoomLevelLimits(0, 0);
 
 
-const $=document.querySelector.bind(document),
-	$$=document.querySelectorAll.bind(document);
+window.$=document.querySelector.bind(document);
+window.$$=document.querySelectorAll.bind(document);
 
 //import sub pages
 $$('div.sub_page').forEach(e=>{
@@ -18,22 +27,44 @@ $$('div.sub_page').forEach(e=>{
 	}
 });
 
+
+
 window.addEventListener('load',()=>{
 	//bind pages
 	let displayingPage=null;
 	$('#side').addEventListener('click',e=>{
 		let t=e.target;
-		if(t.className='side_button'){
+		if(t.className=='side_button'){
 			if(t.classList.contains('active'))return;
 			remote.getCurrentWindow().setTitle(`${t.title} - ${__('dangoco')}`);
 			displayingPage&&$(`#side #${displayingPage}`).classList.remove('active');
 			displayingPage&&$(`#main #${displayingPage}`).classList.remove('active');
-			$(`#main #${t.id}`).classList.add('active');
+			let subPage=$(`#main #${t.id}`);
+			subPage.classList.add('active');
 			t.classList.add('active');
 			displayingPage=t.id;
+			let subWidth=1*subPage.getAttribute('width');
+			settingWindow.setContentSize(subWidth+34,subPage.offsetHeight,false);
 		}
 	});
 	$(`#side ${location.hash}`).click();
+
+
+	//load each pages' js
+	require('../res/server.js');
+	require('../res/socks.js');
+	require('../res/info.js');
+	
+	//open links in borwser
+	$$('a[href]').forEach(a=>{
+		const url = a.getAttribute('href')
+		if (url.indexOf('http') === 0) {
+			a.addEventListener('click', function (e) {
+				e.preventDefault()
+				shell.openExternal(url)
+			})
+		}
+	});
 })
 
 electron.ipcRenderer.on('active_page', (event, page) => {

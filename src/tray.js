@@ -9,7 +9,7 @@ const {app, Menu, Tray} = require('electron');
 
 global.trayIcon=null;
 
-app.on('ready', () => {
+// app.on('ready', () => {
 	trayIcon = new Tray(__dirname+'/ui/res/pic/icon.png');
 	// trayIcon.setToolTip('dangoco')
 	const trayMenu = Menu.buildFromTemplate([
@@ -48,4 +48,4 @@ app.on('ready', () => {
 	trayIcon.on('double-click',()=>app.emit('active'));
 
 	trayIcon.setContextMenu(trayMenu);
-});
+// });

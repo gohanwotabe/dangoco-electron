@@ -11,11 +11,17 @@ process.on('uncaughtException',function(e){//prevent server from stoping when un
 });
 
 
-require('./lang.js');//language
-require('./tray.js');//tray icon
-require('./appMenu.js');//app menu (for macos)
-require('./settings.js');//settings window
-
 app.once('ready',()=>{
+	//base
+	require('./clientConfig.js');
+	require('./lang.js');//language
 	app.setName(__('dangoco'));
+
+	//proxy
+	require('./serverManager.js');
+
+	//ui
+	require('./tray.js');//tray icon
+	require('./appMenu.js');//app menu (for macos)
+	require('./settings.js');//settings window
 })

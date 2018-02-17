@@ -5,8 +5,8 @@ body{
 	cursor: default;
 	user-select:none;
 }
-input{
-	user-select:none;
+input[type="text"],input[type="password"]{
+    user-select: initial;
 	cursor: text;
     width: 14em;
     padding: 0.3em;
@@ -18,10 +18,15 @@ select,input{
 button{
 	padding: .3em 1.3em;
 }
+fieldset{
+	border: 1px rgba(181, 179, 179, 0.51) solid;
+	text-align: left;
+}
 #side{
 	position: fixed;
 	z-index: 999;
 	height: 100%;
+	background-color: #d7d9da;
 }
 #side .side_button{
 	width:34px;
@@ -33,7 +38,7 @@ button{
 	cursor: pointer;
 }
 #side .side_button.active{
-	background-color: rgba(255,255,255,.4);
+	background-color: rgb(231, 232, 233);;
 }
 #side .side_button:hover{
 	background-color: rgba(255,255,255,.4);
@@ -43,6 +48,8 @@ button{
 	width: 100%;
 	box-sizing: border-box;
 	min-height: 100%;
+	min-width: 100px;
+	background-color: rgb(231, 232, 233);;
 }
 
 /*sub_page*/
@@ -51,8 +58,7 @@ button{
 	position: relative;
 	display: none;
 	box-sizing: border-box;
-	min-height: 100%;
-	background-color: rgba(255,255,255,.4);
+	min-height: 150px;
 }
 .sub_page.active{
 	display: block;
@@ -61,7 +67,7 @@ button{
 /*server page*/
 #server_settings_frame{
 	display: flex;
-	width: 100%;
+	width: 481px;
 }
 #server_settings_frame>div{
 	padding: .4em;
@@ -78,4 +84,23 @@ button{
 }
 #server_settings_frame #server_info > div{
 	margin-bottom: .2em;
+}
+#server_setting{
+    margin-bottom: .5em;
+}
+
+/*socks page*/
+#socks_settings_frame{
+
+}
+#socks_table{
+	width:100%;
+	height: 6em;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+
+/*info page*/
+#info_frame{
+	
 }

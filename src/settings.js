@@ -48,8 +48,8 @@ app.on('active',(page='server')=>{
 	//not quit
 }).on('activate', () => {
 	app.emit('active');
-}).once('ready',()=>{
-	if(!clientConfig.server || clientConfig.server.length===0){
-		app.emit('active');//active the settings window if there is no server set
-	}
 });
+
+if(!clientConfig.server || clientConfig.server.length===0){
+	app.emit('active');//active the settings window if there is no server set
+}

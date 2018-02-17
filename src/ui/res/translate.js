@@ -8,7 +8,7 @@ dangoco client page loader
 const translateField=/^\{\{(.+?)\}\}$/;
 const remote=require('electron').remote;
 
-const __=remote.getGlobal('__');
+window.__=remote.getGlobal('__');
 
 window.addEventListener('load',()=>{
 	document.querySelectorAll('[trans]').forEach(e=>{

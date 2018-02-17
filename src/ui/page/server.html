@@ -1,17 +1,41 @@
 <div id="server_settings_frame">
 	<div style="flex-grow:0;">
-		<select id="server_list" size=16>
-			<option value="1">test</option>
-		</select>
+		<select id="server_list" size=16></select>
 		<br>
-		<button trans>{{New}}</button>&nbsp;<button trans>{{Delete}}</button>
+		<button trans id="new_server">{{New}}</button>&nbsp;<button trans id="delete_server">{{Delete}}</button>
 	</div>
 	<div id="server_info">
-		<div><span trans>{{Server Name}}</span>&nbsp;:&nbsp;<input type="text" name="serverName"></div>
-		<div><span trans>{{Server Address}}</span>&nbsp;:&nbsp;<input type="text" name="serverAddress"></div>
-		<div style="display: flex;line-height: 1.8em;">
-			<input placeholder="{{User Name}}" trans="placeholder" type="text" name="user" style="width:auto;flex-grow:.4;">
-			&nbsp;:&nbsp;
-			<input placeholder="{{Password}}" trans="placeholder" type="password" name="password" style="width:auto;flex-grow:.4;"></div>
+		<form id="server_setting" onsubmit="return false;">
+			<div><span trans>{{Server Name}}</span>&nbsp;:&nbsp;<input type="text" name="serverName" setting-item="name"></div>
+			<div><span trans>{{Server Address}}</span>&nbsp;:&nbsp;<input type="text" name="serverAddress" placeholder="ws(s)://xxx" setting-item="address" default=""></div>
+			<div style="display: flex;line-height: 1.8em;">
+				<input placeholder="{{User Name}}" trans="placeholder" type="text" name="user" style="width:auto;flex-grow:.4;" setting-item="user" default="">
+				&nbsp;:&nbsp;
+				<input placeholder="{{Password}}" trans="placeholder" type="password" name="password" style="width:auto;flex-grow:.4;" setting-item="password" default="">
+			</div>
+			<fieldset style="margin-bottom: .5em;">
+				<legend trans>{{Custom Options}}</legend>
+				<div><label title="{{_desc_encrypt_}}" trans="title"><span trans>{{Encryption}}</span></label>&nbsp;:&nbsp;<select name="algorithm" setting-item="algo" default="none"></select></div>
+				<div>
+					&nbsp;&nbsp;&nbsp;&nbsp;<label for="keyLength" title="{{_desc_keyLength_}}" trans="title"><span trans>{{Randomkey Length}}</span></label>&nbsp;:&nbsp;<input type="number" name="keyLength" style="width:4em;" value=33 min="1" setting-item="keyLength" default="33"/>
+				</div>
+				<div>
+					<label for="disableDeflate" title="{{_desc_disableDeflate_}}" trans="title"><input type="checkbox" name="disableDeflate" id="disableDeflate" setting-item="disableDeflate"><span trans>{{Disable Deflate}}</span></label>
+					&nbsp;&nbsp;&nbsp;&nbsp;<label title="{{_desc_idle_}}" trans="title"><span trans>{{Idle Timeout}}</span></label>&nbsp;:&nbsp;<input type="number" min="0" name="idleTimeout" style="width:4em;" value="15" setting-item="idle" default="15"/>
+				</div>
+				<div>
+					<label title="{{_desc_keepBrokenTunnel_}}" trans="title"><span trans>{{Keep BrokenTunnel}}</span></label>&nbsp;:&nbsp;<input type="number" min="0" name="keepBrokenTunnelTimeout" style="width:4em;" value="0" setting-item="keepBrokenTunnel" default="0"/>
+				</div>
+				<div>
+					<span trans>{{Create separate connections for}}</span>:<br>
+					<label for="connectionPerRequest" title="{{_desc_connectionPerRequest_}}" trans="title"><input type="checkbox" name="connectionPerRequest" setting-item="connectionPerRequest" id="connectionPerRequest" default=""><span trans>{{per request}}</span></label>
+					<label for="connectionPerTarget" title="{{_desc_connectionPerTarget_}}" trans="title"><input type="checkbox" name="connectionPerTarget" setting-item="connectionPerTarget" id="connectionPerTarget" default=""><span trans>{{per target}}</span></label>
+					<label for="connectionPerTCP" title="{{_desc_connectionPerTCP_}}" trans="title"><input type="checkbox" name="connectionPerTCP" setting-item="connectionPerTCP" id="connectionPerTCP" default=""><span trans>{{per tcp}}</span></label>
+					<label for="connectionPerUDP" title="{{_desc_connectionPerUDP_}}" trans="title"><input type="checkbox" name="connectionPerUDP" setting-item="connectionPerUDP" id="connectionPerUDP" default=""><span trans>{{per udp}}</span></label>
+					<label for="connectionForUDP" title="{{_desc_connectionForUDP_}}" trans="title"><input type="checkbox" name="connectionForUDP" setting-item="connectionForUDP" id="connectionForUDP" default=""><span trans>{{all udp}}</span></label>
+				</div> 
+			</fieldset>
+			<button trans id="save_server">{{Save}}</button>
+		</form>
 	</div>
 </div>

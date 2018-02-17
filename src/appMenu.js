@@ -8,7 +8,7 @@ dangoco client settings window
 const {Menu} = require('electron');
 
 if (process.platform === 'darwin') {
-	app.once('ready',()=>{
+	// app.once('ready',()=>{
 		const menu = Menu.buildFromTemplate([
 			{
 				label: app.getName(),
@@ -30,7 +30,7 @@ if (process.platform === 'darwin') {
 			},
 		]);
 		Menu.setApplicationMenu(menu);
-	});
+	// });
 	
 }
 
