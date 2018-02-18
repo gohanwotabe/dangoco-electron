@@ -13,6 +13,18 @@ const ele_server_setting=$('#server_setting'),
 	ele_server_list=$('#server_list'),
 	eles_settingItem=$$('#server_setting *[setting-item]');
 
+
+
+//fill algorithms
+let algos=require('crypto').getCiphers();
+algos.unshift('none');
+for(let a of algos){
+	let opt=document.createElement('option');
+	opt.value=opt.innerHTML=a;
+	settingEles.algorithm.appendChild(opt);
+}
+
+
 /*events*/
 //new server
 $('#new_server').addEventListener('click',()=>{
@@ -52,16 +64,6 @@ ele_server_list.addEventListener('click',e=>{
 
 
 
-//fill algorithms
-let algos=require('crypto').getCiphers();
-algos.unshift('none');
-for(let a of algos){
-	let opt=document.createElement('option');
-	opt.value=opt.innerHTML=a;
-	settingEles.algorithm.appendChild(opt);
-}
-
-
 //list
 function selectIndex(ind){
 	ele_server_list[ind].click();
@@ -73,6 +75,25 @@ function getServerListOpt(serverID){
 			return ele_server_list[i];
 		}
 	}
+}
+function opt_drag(e){
+	let opt=this,rect=opt.getBoundingClientRect();
+	if(e.clientY<rect.top){
+		if(opt.index>0){
+			opt.previousElementSibling.insertAdjacentElement('beforebegin',opt);
+		}
+	}else if(e.clientY>rect.top+rect.height){
+		if(opt.index<ele_server_list.length-1){
+			opt.nextElementSibling.insertAdjacentElement('afterend',opt);
+		}
+	}
+}
+function saveOrder(){
+	let idList=[];
+	ele_server_list.childNodes.forEach(o=>{
+		idList.push(o.serverID);
+	});
+	serverManager.changeOrder(idList);
 }
 function refreshServerList(){
 	let oldChildren=new Map();
@@ -89,6 +110,12 @@ function refreshServerList(){
 			opt=document.createElement('option');
 			opt.innerText=s.name;
 			opt.serverID=s.serverID;
+			extendEvent.touchdrag(opt);
+			extendEvent.mousedrag(opt);
+			opt.addEventListener('touchdragmove',opt_drag);
+			opt.addEventListener('mousedragmove',opt_drag);
+			opt.addEventListener('touchdragend',saveOrder);
+			opt.addEventListener('mousedragend',saveOrder);
 		}
 		ele_server_list.appendChild(opt);
 	}
@@ -98,24 +125,6 @@ function refreshServerList(){
 
 
 /*load info*/
-/*
-settingEles[name]	 => 	info[name]
-	serverName 					=> name
-	serverAddress 				=> address
-	user						=> user
-	password					=> password
-	algorithms					=> algo
-	keyLength					=> keyLength
-	disableDeflate				=> disableDeflate
-	idleTimeout					=> idle
-	keepBrokenTunnelTimeout		=> keepBrokenTunnel
-	connectionPerRequest		=> connectionPerRequest
-	connectionPerTarget			=> connectionPerTarget
-	connectionPerTCP			=> connectionPerTCP
-	connectionPerUDP			=> connectionPerUDP
-	connectionForUDP			=> connectionForUDP
-
-*/
 function loadInfo(serverID){
 	let opt=getServerListOpt(serverID);
 	let info=opt._edited||Object.assign({},serverManager.get(serverID));

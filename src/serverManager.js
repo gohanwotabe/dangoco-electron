@@ -45,25 +45,23 @@ global.serverManager={
 		let sobj=runtimeServerList.get(serverID);
 		if(!sobj)return false;
 		runtimeServerList.delete(serverID);
-		/*for(let i=runtimeServerList.length;i--;){
-			if(runtimeServerList[i].serverID===serverID){
-				runtimeServerList.splice(i,1);
-				break;
-			}
-		}*/
+
 		//todo remove from childClient
+	},
+	changeOrder(idList){
+		let list=[];
+		idList.forEach(s=>{
+			list.push([s,runtimeServerList.get(s)]);
+		});
+		runtimeServerList=new Map(list);
+		this.save();
 	},
 	mod(serverID,server){
 		let rawobj=runtimeServerList.get(serverID);
 		if(!rawobj)return false;
 		let sobj=Object.assign({},server);
 		runtimeServerList.set(serverID,sobj);
-		/*for(let i=runtimeServerList.length;i--;){
-			if(runtimeServerList[i].serverID===serverID){
-				runtimeServerList[i]=sobj;
-				break;
-			}
-		}*/
+
 		//todo mod server info in the childClient
 	},
 	list(){

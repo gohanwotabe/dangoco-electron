@@ -51,6 +51,7 @@ window.addEventListener('load',()=>{
 	$(`#side ${location.hash}`).click();
 
 
+	require('../res/lib.js');
 	//load each pages' js
 	require('../res/server.js');
 	require('../res/socks.js');

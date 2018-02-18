@@ -16,9 +16,11 @@ function formatTime(sec,total=sec){
 	(total>=3600)&&r.unshift(String(h).padStart(2,'0'));
 	return r.join(':');
 }
-setInterval(()=>{
+function updateTime(){
 	ele_dangoco_uptime.innerText=formatTime(remoteProcess.uptime());
-},1000);
+}
+updateTime();
+setInterval(updateTime,1000);
 
 //language list
 const ele_client_language=$('#client_language');
