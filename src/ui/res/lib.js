@@ -114,13 +114,11 @@ window.extendEvent={//扩展事件
 		element._mouseDragStat={};
 		element._mouseDragOptions=Object.assign({},extendEventDefaultOpt.mousedrag,opt);
 		element.addEventListener('mousedown',mousedown);
-		element.addEventListener('mouseup',mousedown);
 	},
 	disableMouseDrag(element){
 		delete element._mouseDragStat;
 		delete element._mouseDragOptions;
 		element.removeEventListener('mousedown',mousedown);
-		element.removeEventListener('mouseup',mousedown);
 	},
 }
 })();

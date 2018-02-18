@@ -43,7 +43,7 @@ window.addEventListener('load',()=>{
 			subPage.classList.add('active');
 			t.classList.add('active');
 			displayingPage=t.id;
-			location.hash=t.id;
+			location.hash='#'+t.id;
 			let subWidth=1*subPage.getAttribute('width');
 			settingWindow.setContentSize(subWidth+34,subPage.offsetHeight,false);
 		}

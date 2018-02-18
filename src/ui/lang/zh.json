@@ -39,7 +39,7 @@
 	"Create separate connections for": "为以下情况建立单独的连接",
 	"_desc_connectionPerRequest_": "客户端每接到一个请求就建立一个和服务器的连接。\n 除非特殊情况否则不建议使用，团子子建立连接的开销比较大",
 	"per request": "每一个请求",
-	"_desc_connectionPerTarget_": "为每一个目标建立一个连接。",
+	"_desc_connectionPerTarget_": "为每一个目标建立一个连接",
 	"per target": "每一个目标",
 	"_desc_connectionPerTCP_": "为每个tcp请求建立一个连接\n 不建议使用",
 	"per tcp": "每一个tcp请求",
