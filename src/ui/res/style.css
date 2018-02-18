@@ -1,107 +1,233 @@
-body{
-	margin: 0;
-	padding: 0;
-	background-color: #d7d9da;
-	cursor: default;
-	user-select:none;
-}
-input[type="text"],input[type="password"]{
-    user-select: initial;
-	cursor: text;
-    width: 14em;
-    padding: 0.3em;
-    box-sizing: border-box;
-}
-select,input{
-	outline: none;
-}
-button{
-	padding: .3em 1.3em;
-}
-fieldset{
-	border: 1px rgba(181, 179, 179, 0.51) solid;
-	text-align: left;
-}
-#side{
-	position: fixed;
-	z-index: 999;
-	height: 100%;
-	background-color: #d7d9da;
-}
-#side .side_button{
-	width:34px;
-	height: 34px;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: 65%;
-	display: block;
-	cursor: pointer;
-}
-#side .side_button.active{
-	background-color: rgb(231, 232, 233);;
-}
-#side .side_button:hover{
-	background-color: rgba(255,255,255,.4);
-}
-#main{
-	padding-left: 34px; 
-	width: 100%;
-	box-sizing: border-box;
-	min-height: 100%;
-	min-width: 100px;
-	background-color: rgb(231, 232, 233);;
+@charset "UTF-8";
+
+/* meyerweb.com/eric/tools/css/reset 2.0 */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+body{line-height:1;}
+ol,ul{list-style:none;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:"";content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
 }
 
-/*sub_page*/
-.sub_page{
-	padding: .6em;
-	position: relative;
-	display: none;
-	box-sizing: border-box;
-	min-height: 150px;
-	overflow-x: none;
-}
-.sub_page.active{
-	display: block;
+::-webkit-scrollbar-corner {
+    background-color: transparent;
 }
 
-/*server page*/
-#server_settings_frame{
-	display: flex;
-	width: 481px;
-}
-#server_settings_frame>div{
-	padding: .4em;
-}
-#server_settings_frame #server_list{
-	width: 15em;
-	margin-bottom: 0.6em;
-}
-#server_settings_frame #server_info{
-	flex-grow:1;
-	text-align: right;
-	position: relative;
-	font-size: 0.8em;
-}
-#server_settings_frame #server_info > div{
-	margin-bottom: .2em;
-}
-#server_setting{
-    margin-bottom: .5em;
+::-webkit-scrollbar-thumb {
+    border: 3px solid transparent;
+    border-radius: 90px;
+    background-color: rgba(0, 0, 0, 0.2);
+    background-clip: padding-box;
 }
 
-/*socks page*/
-#socks_settings_frame{
-
-}
-#socks_table{
-	width:100%;
-	height: 6em;
-	border: 1px solid #ccc;
-	border-radius: 3px;
+::-webkit-scrollbar-thumb:active {
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-/*info page*/
-#info_frame{
-
+a {
+    outline: none;
+    cursor: pointer;
 }
+
+button,
+input,
+select,
+option {
+    font-family: "PingFang SC", "Microsoft YaHei";
+    font-size: 12px;
+    line-height: 20px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+}
+
+button {
+    padding: 1px 14px;
+    margin-top: 10px;
+    background-color: #D7D7D7;
+}
+
+button:active {
+    box-shadow: 0 0 0 2px #1E90FF;
+}
+
+input::-webkit-input-placeholder {
+    color: #808080;
+}
+
+input:not([type="checkbox"]) {
+    padding: 1px 4px;
+    width: 160px;
+}
+
+select {
+    width: 160px;
+}
+
+select:not([size]) {
+    padding: 1px 2px 3px;
+    height: 22px;
+}
+
+select[size] {
+    width: 164px;
+    padding: 4px 0 4px 4px;
+}
+
+option {
+    padding: 2px 4px;
+}
+
+table {
+    position: relative;
+    min-width: 100%;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+}
+
+table > *:first-child > *:first-child > *:first-child {
+    border-top-left-radius: 4px;
+}
+
+table > *:first-child > *:first-child > *:last-child {
+    border-top-right-radius: 4px;
+}
+
+table > *:last-child > *:last-child > *:first-child {
+    border-bottom-left-radius: 4px;
+}
+
+table > *:last-child > *:last-child > *:last-child {
+    border-bottom-right-radius: 4px;
+}
+
+table tr:hover,
+table tr:active {
+    background-color: #F2F2F2;
+}
+
+table th,
+table td {
+    padding: 4px 8px;
+}
+
+table th {
+    text-align: left;
+    font-weight: 700;
+    background-color: #E7E7E7;
+}
+
+label {
+    white-space: nowrap;
+}
+
+fieldset {
+    padding: 10px;
+    border: 1px solid #D7D7D7;
+    border-radius: 4px;
+}
+
+legend {
+    padding: 0 2px;
+    font-weight: 700;
+    color: #666666;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100vw;
+    height: 100vh;
+    cursor: default;
+    font-family: "PingFang SC", "Microsoft YaHei";
+    font-size: 12px;
+    line-height: 20px;
+    word-break: break-all;
+    color: #000000;
+    background-color: #F7F7F7;
+    user-select: none;
+}
+
+/* Side */
+#side {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: #E7E7E7;
+}
+
+:root {
+    --side_button_size: 36px;
+}
+
+.side_button {
+    width: var(--side_button_size);
+    height: var(--side_button_size);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 38.2%;
+}
+
+.side_button.active {
+    background-color: #F7F7F7;
+}
+
+.sub_page {
+    padding: 10px;
+    min-height: calc(var(--side_button_size) * 5 - 20px);
+}
+
+.sub_page:not(.active) {
+    display: none;
+}
+
+/* Main */
+#main {
+    margin-left: var(--side_button_size);
+}
+
+/* Server Page */
+#server_settings_frame {
+    display: flex;
+    max-width: 462px;
+}
+
+#server_settings_frame > div {
+    flex: auto;
+}
+
+#server_settings_frame > div:nth-child(2) {
+    margin-left: 10px;
+}
+
+#server_setting > div,
+fieldset > div:not(:last-child) {
+    display: flex;
+}
+
+#server_setting > div:not(:first-child),
+fieldset > div:not(:first-child):not(:nth-child(2)) {
+    margin-top: 6px;
+}
+
+#server_setting > div > div:first-child,
+fieldset > div > div:first-child {
+    flex: auto;
+    text-align: right;
+}
+#server_setting > div > div:last-child,
+fieldset > div > div:last-child {
+    width: 160px;
+}
+
+/* Socks Page */
+#socks_settings_frame {}
+
+/* Info Page */
+#info_frame {}

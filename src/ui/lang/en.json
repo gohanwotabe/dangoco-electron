@@ -49,14 +49,19 @@
 	"_desc_encrypt_": "Encrypt the stream. It's recommended when not using wss connections.",
 	"Save": "Save",
 	"new server": "new server",
-	"dangoco version": "dangoco version",
 	"Switch": "Switch",
 	"Name": "Name",
 	"Listen Host": "Listen Host",
 	"Listen Port": "Listen Port",
 	"Forward Rule": "Forward Rule",
-	"project url": "project url",
-	"uptime": "uptime",
 	"_msg_in_info_": "Thanks for all contributors.",
-	"client version": "client version"
+	"Duplicate": "Duplicate",
+	"Client version": "Client version",
+	"Dangoco version": "Dangoco version",
+	"Project url": "Project url",
+	"Uptime": "Uptime",
+	"Language": "Language",
+	"_lang_auto_": "Auto",
+	"_lang_en_": "English",
+	"_lang_zh_": "Chinese"
 }

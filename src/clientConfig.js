@@ -1,23 +1,12 @@
 /*
 Copyright 2017 gohanwotabe
 */
-'use strict';
-
-
-const configStore=require('electron-store'),
-	Path=require('path');
-//load config
-const configOpt={};
-if(process.platform!=='drawin')//change userdata path to working directory on platforms except macos
-	configOpt.cwd=Path.resolve(__dirname,'../data');
-global.clientConfig=new configStore(configOpt);
-console.debug("config",clientConfig.path,clientConfig.store)
 
 
 /*
 options
 	language:(string),
-	servers: info of servers [
+	servers: (info of servers) [
 		{
 			name:(string),
 			address:(string),
@@ -36,9 +25,22 @@ options
 		},
 		...
 	],
-	socksMap
+	socksMap: (array) [
+		{...}
+	]
 
 */
 
-//default options
-// if(clientConfig.get('servers'))
+'use strict';
+
+
+const configStore=require('electron-store'),
+	Path=require('path');
+//load config
+const configOpt={};
+if(process.platform!=='drawin')//change userdata path to working directory on platforms except macos
+	configOpt.cwd=Path.resolve(__dirname,'../data');
+global.clientConfig=new configStore(configOpt);
+console.debug("config",clientConfig.path,clientConfig.store)
+
+

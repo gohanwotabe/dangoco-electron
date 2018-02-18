@@ -50,14 +50,19 @@
 	"_desc_encrypt_": "主动加密数据流，在使用非wss连接时建议打开此项。",
 	"Save": "保存",
 	"new server": "新建服务器",
-	"dangoco version": "团子子版本",
+	"Dangoco version": "团子子版本",
 	"Switch": "开关",
 	"Name": "名称",
 	"Listen Host": "监听地址",
 	"Listen Port": "监听端口",
 	"Forward Rule": "转发规则",
-	"project url": "项目地址",
-	"uptime": "运行时间",
+	"Project url": "项目地址",
+	"Uptime": "运行时间",
 	"_msg_in_info_": "感谢所有贡献者",
-	"client version": "客户端版本"
+	"Client version": "客户端版本",
+	"Duplicate": "复制",
+	"Language": "语言",
+	"_lang_auto_": "自动选择",
+	"_lang_en_": "英语",
+	"_lang_zh_": "中文"
 }

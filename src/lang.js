@@ -10,6 +10,8 @@ let i18n=require('i18n'),
 		Path=require('path'),
 		{app} = require('electron');
 
+global.i18n=i18n;
+
 /*--------i18n---------*/
 i18n.configure({
 	locales:['en','zh'],
@@ -30,9 +32,15 @@ i18n.configure({
 	},
 });
 
+i18n.setLanguage=(code)=>{
+	if(code=='auto')code=locale;
+	i18n.setLocale(code);
+}
+
 let locale=app.getLocale(),
 	avail=new Set(i18n.getLocales());
 if(!avail.has(locale)){
 	locale=locale.match(/^[^\-]+/)[0];
 }
-i18n.setLocale(locale);
+
+i18n.setLanguage(clientConfig.get('language',locale));

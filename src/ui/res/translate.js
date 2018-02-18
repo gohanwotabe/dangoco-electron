@@ -9,6 +9,7 @@ const translateField=/^\{\{(.+?)\}\}$/;
 const remote=require('electron').remote;
 
 window.__=remote.getGlobal('__');
+window.i18n=remote.getGlobal('i18n');
 
 window.addEventListener('load',()=>{
 	document.querySelectorAll('[trans]').forEach(e=>{

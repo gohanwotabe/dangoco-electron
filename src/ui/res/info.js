@@ -19,3 +19,20 @@ function formatTime(sec,total=sec){
 setInterval(()=>{
 	ele_dangoco_uptime.innerText=formatTime(remoteProcess.uptime());
 },1000);
+
+//language list
+const ele_client_language=$('#client_language');
+let langs=i18n.getLocales();
+langs.unshift('auto');
+for(let lang of langs){
+	let opt=document.createElement('option');
+	opt.value=lang;
+	opt.innerHTML=__('_lang_'+lang+'_');
+	ele_client_language.appendChild(opt);
+}
+ele_client_language.value=i18n.getLocale();
+ele_client_language.addEventListener('change',()=>{
+	clientConfig.set('language',ele_client_language.value);
+	i18n.setLanguage(ele_client_language.value);
+	location.reload();
+});

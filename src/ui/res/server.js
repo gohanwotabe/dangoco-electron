@@ -27,6 +27,15 @@ $('#delete_server').addEventListener('click',()=>{
 	refreshServerList();
 	selectIndex((ele_server_list.length<=selectedIndex)?ele_server_list.length-1:selectedIndex);
 });
+//duplicate server
+$('#duplicate_server').addEventListener('click',()=>{
+	let selectedIndex=ele_server_list.selectedIndex;
+	// serverManager.delete(ele_server_list[selectedIndex].serverID);
+	let server=serverManager.get(ele_server_list[selectedIndex].serverID);
+	serverManager.add(server);
+	refreshServerList();
+	selectIndex(ele_server_list.length-1);//select the new server
+});
 //info change
 $('#server_info').addEventListener('change',recordChange);
 //save server
