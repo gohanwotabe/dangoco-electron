@@ -225,7 +225,7 @@ body {
 /* Server Page */
 #server_settings_frame {
     display: flex;
-    max-width: 462px;
+    /*max-width: 462px;*/
 }
 
 #server_settings_frame > div {

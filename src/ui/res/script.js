@@ -44,8 +44,7 @@ window.addEventListener('load',()=>{
 			displayingPage=t.id;
 			location.hash='#'+t.id;
 			remote.getCurrentWindow().setTitle(`${t.title} - ${__('dangoco')}`);
-			let subWidth=1*subPage.getAttribute('width');
-			settingWindow.setContentSize(subWidth+34,subPage.offsetHeight,false);
+			settingWindow.setContentSize(subPage.scrollWidth+34,subPage.scrollHeight,false);
 		}
 	});
 	$(`#side ${location.hash}`).click();
