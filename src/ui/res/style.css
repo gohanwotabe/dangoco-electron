@@ -154,7 +154,6 @@ table th {
 
 label {
     white-space: nowrap;
-    display: inline-block;
 }
 
 fieldset {
@@ -164,6 +163,7 @@ fieldset {
 }
 
 legend {
+    margin-bottom: -10px;
     padding: 0 2px;
     color: #808080;
 }
@@ -204,12 +204,18 @@ body {
     background-size: 38.2%;
 }
 
+.side_button:not(.active) {
+    opacity: 0.5;
+}
+
 .side_button.active {
     background-color: #F7F7F7;
 }
 
 .sub_page {
     padding: 10px;
+    display: inline-block;
+    min-width: 350px;
     min-height: calc(var(--side_button_size) * 5 - 20px);
 }
 
@@ -224,12 +230,7 @@ body {
 
 /* Server Page */
 #server_settings_frame {
-    display: flex;
-    /*max-width: 462px;*/
-}
-
-#server_settings_frame > div {
-    flex: auto;
+    display: inline-flex;
 }
 
 #server_settings_frame > div:nth-child(2) {
@@ -258,6 +259,7 @@ fieldset > div > div:last-child {
 }
 
 fieldset > div:last-child label {
+    display: inline-block;
     margin-right: 4px;
 }
 

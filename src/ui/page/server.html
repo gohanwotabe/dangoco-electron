@@ -2,7 +2,7 @@
 	<div>
 		<select id="server_list" size=15></select>
 		<br>
-		<button trans id="new_server">{{New}}</button>&nbsp;<button trans id="delete_server">{{Delete}}</button>&nbsp;<button trans id="duplicate_server">{{Duplicate}}</button>
+		<button trans id="new_server">{{New}}</button>&nbsp;<wbr><button trans id="delete_server">{{Delete}}</button>&nbsp;<wbr><button trans id="duplicate_server">{{Duplicate}}</button>
 	</div>
 	<div id="server_info">
 		<form id="server_setting" onsubmit="return false;">
@@ -46,11 +46,11 @@
 				</div>
 				<div>
 					<span trans>{{Create separate connections for}}</span>&nbsp;:<br>
-					<label for="connectionPerRequest" title="{{_desc_connectionPerRequest_}}" trans="title"><input type="checkbox" name="connectionPerRequest" setting-item="connectionPerRequest" id="connectionPerRequest" default=""><span trans>{{per request}}</span></label>
-					<label for="connectionPerTarget" title="{{_desc_connectionPerTarget_}}" trans="title"><input type="checkbox" name="connectionPerTarget" setting-item="connectionPerTarget" id="connectionPerTarget" default=""><span trans>{{per target}}</span></label>
-					<label for="connectionPerTCP" title="{{_desc_connectionPerTCP_}}" trans="title"><input type="checkbox" name="connectionPerTCP" setting-item="connectionPerTCP" id="connectionPerTCP" default=""><span trans>{{per tcp}}</span></label>
-					<label for="connectionPerUDP" title="{{_desc_connectionPerUDP_}}" trans="title"><input type="checkbox" name="connectionPerUDP" setting-item="connectionPerUDP" id="connectionPerUDP" default=""><span trans>{{per udp}}</span></label>
-					<label for="connectionForUDP" title="{{_desc_connectionForUDP_}}" trans="title"><input type="checkbox" name="connectionForUDP" setting-item="connectionForUDP" id="connectionForUDP" default=""><span trans>{{all udp}}</span></label>
+					<label for="connectionPerRequest" title="{{_desc_connectionPerRequest_}}" trans="title"><input type="checkbox" name="connectionPerRequest" setting-item="connectionPerRequest" id="connectionPerRequest" default=""><span trans>{{per request}}</span></label><wbr>
+					<label for="connectionPerTarget" title="{{_desc_connectionPerTarget_}}" trans="title"><input type="checkbox" name="connectionPerTarget" setting-item="connectionPerTarget" id="connectionPerTarget" default=""><span trans>{{per target}}</span></label><wbr>
+					<label for="connectionPerTCP" title="{{_desc_connectionPerTCP_}}" trans="title"><input type="checkbox" name="connectionPerTCP" setting-item="connectionPerTCP" id="connectionPerTCP" default=""><span trans>{{per tcp}}</span></label><wbr>
+					<label for="connectionPerUDP" title="{{_desc_connectionPerUDP_}}" trans="title"><input type="checkbox" name="connectionPerUDP" setting-item="connectionPerUDP" id="connectionPerUDP" default=""><span trans>{{per udp}}</span></label><wbr>
+					<label for="connectionForUDP" title="{{_desc_connectionForUDP_}}" trans="title"><input type="checkbox" name="connectionForUDP" setting-item="connectionForUDP" id="connectionForUDP" default=""><span trans>{{all udp}}</span></label><wbr>
 				</div>
 			</fieldset>
 			<button trans id="save_server">{{Save}}</button>
