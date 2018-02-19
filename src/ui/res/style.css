@@ -154,6 +154,7 @@ table th {
 
 label {
     white-space: nowrap;
+    display: inline-block;
 }
 
 fieldset {

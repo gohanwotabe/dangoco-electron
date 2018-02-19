@@ -50,6 +50,6 @@ app.on('active',(page='server')=>{
 	app.emit('active');
 });
 
-if(!clientConfig.server || clientConfig.server.length===0){
+if(clientConfig.get('servers',[]).length===0){
 	app.emit('active');//active the settings window if there is no server set
 }
