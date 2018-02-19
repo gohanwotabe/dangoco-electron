@@ -36,7 +36,6 @@ window.addEventListener('load',()=>{
 		let t=e.target;
 		if(t.className=='side_button'){
 			if(t.classList.contains('active'))return;
-			remote.getCurrentWindow().setTitle(`${t.title} - ${__('dangoco')}`);
 			displayingPage&&$(`#side #${displayingPage}`).classList.remove('active');
 			displayingPage&&$(`#main #${displayingPage}`).classList.remove('active');
 			let subPage=$(`#main #${t.id}`);
@@ -44,6 +43,7 @@ window.addEventListener('load',()=>{
 			t.classList.add('active');
 			displayingPage=t.id;
 			location.hash='#'+t.id;
+			remote.getCurrentWindow().setTitle(`${t.title} - ${__('dangoco')}`);
 			let subWidth=1*subPage.getAttribute('width');
 			settingWindow.setContentSize(subWidth+34,subPage.offsetHeight,false);
 		}

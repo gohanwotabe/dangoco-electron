@@ -61,6 +61,9 @@ ele_server_list.addEventListener('click',e=>{
 	if(t.serverID)
 		loadInfo(t.serverID);
 });
+ele_server_list.addEventListener('change',e=>{
+	ele_server_list[ele_server_list.selectedIndex].click();
+});
 
 
 
@@ -78,11 +81,12 @@ function getServerListOpt(serverID){
 }
 function opt_drag(e){
 	let opt=this,rect=opt.getBoundingClientRect();
-	if(e.clientY<rect.top){
+	let ev=e.touches?e.touches[0]:e;
+	if(ev.clientY<rect.top){
 		if(opt.index>0){
 			opt.previousElementSibling.insertAdjacentElement('beforebegin',opt);
 		}
-	}else if(e.clientY>rect.top+rect.height){
+	}else if(ev.clientY>rect.top+rect.height){
 		if(opt.index<ele_server_list.length-1){
 			opt.nextElementSibling.insertAdjacentElement('afterend',opt);
 		}
@@ -125,7 +129,10 @@ function refreshServerList(){
 
 
 /*load info*/
+let justLoaded=null;
 function loadInfo(serverID){
+	if(justLoaded==serverID)return;
+	justLoaded=serverID;
 	let opt=getServerListOpt(serverID);
 	let info=opt._edited||Object.assign({},serverManager.get(serverID));
 	editingServer=info;

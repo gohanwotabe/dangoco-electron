@@ -58,10 +58,12 @@ function touchmove(e){
 		if(!id in stats)continue;
 		if(!stats[id].dragging){
 			let event=new TouchEvent('touchdragstart',e);
+			event.draggingID=id;
 			this.dispatchEvent(event);
 			stats[id].dragging=true;
 		}
 		var event=new TouchEvent('touchdragmove',e);
+		event.draggingID=id;
 		event.deltaX=ct[t].clientX-stats[id].x;
 		event.deltaY=ct[t].clientY-stats[id].y;
 		stats[id].x=ct[t].clientX;
@@ -77,6 +79,7 @@ function touchend(e){
 		var id=ct[t].identifier;
 		if(id in stats){
 			let event=new TouchEvent('touchdragend',e);
+			event.draggingID=id;
 			this.dispatchEvent(event);
 			delete stats[id];
 		}
@@ -87,9 +90,9 @@ window.extendEvent={//扩展事件
 	touchdrag(element,opt){
 		/*
 			add events:
-				touchdragstart:(e:touchmove)
-				touchdragmove:(e:touchmove+{deltaX,deltaY})
-				touchdragend:(e:touchend)
+				touchdragstart:(e:touchmove+{draggingID})
+				touchdragmove:(e:touchmove+{deltaX,deltaY,draggingID})
+				touchdragend:(e:touchend+{draggingID})
 		*/
 		element._touchDragStats={};
 		element._touchDragOptions=Object.assign({},extendEventDefaultOpt.touchdrag,opt);

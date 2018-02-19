@@ -44,16 +44,41 @@ option {
     outline: none;
     border: none;
     border-radius: 4px;
+    vertical-align: middle;
+}
+
+button,
+input:not([type="checkbox"]),
+select,
+option {
+    -webkit-appearance: none;
 }
 
 button {
     padding: 1px 14px;
     margin-top: 10px;
+    background-color: #E7E7E7;
+}
+
+button:hover {
     background-color: #D7D7D7;
 }
 
 button:active {
-    box-shadow: 0 0 0 2px #1E90FF;
+    background-color: #E7E7E7;
+    box-shadow: 0 0 0 1px #1E90FF;
+}
+
+input:not([type="checkbox"]),
+select:not([size]) {
+    border-radius: 0;
+    border-bottom: 1px solid #C7C7C7;
+    background-color: transparent;
+}
+
+input:not([type="checkbox"]):focus,
+select:not([size]):focus {
+    border-bottom-color: #1E90FF;
 }
 
 input::-webkit-input-placeholder {
@@ -61,8 +86,12 @@ input::-webkit-input-placeholder {
 }
 
 input:not([type="checkbox"]) {
-    padding: 1px 4px;
+    padding: 0;
     width: 160px;
+}
+
+input[type="checkbox"] {
+    margin-left: 0;
 }
 
 select {
@@ -70,8 +99,9 @@ select {
 }
 
 select:not([size]) {
-    padding: 1px 2px 3px;
-    height: 22px;
+    padding: 0;
+    width: auto;
+    max-width: 160px;
 }
 
 select[size] {
@@ -128,14 +158,13 @@ label {
 
 fieldset {
     padding: 10px;
-    border: 1px solid #D7D7D7;
+    border: 1px solid #C7C7C7;
     border-radius: 4px;
 }
 
 legend {
     padding: 0 2px;
-    font-weight: 700;
-    color: #666666;
+    color: #808080;
 }
 
 body {
@@ -224,6 +253,10 @@ fieldset > div > div:first-child {
 #server_setting > div > div:last-child,
 fieldset > div > div:last-child {
     width: 160px;
+}
+
+fieldset > div:last-child label {
+    margin-right: 4px;
 }
 
 /* Socks Page */
