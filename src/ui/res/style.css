@@ -250,6 +250,7 @@ fieldset > div:not(:first-child):not(:nth-child(2)) {
 fieldset > div > div:first-child {
     flex: auto;
     text-align: right;
+    white-space: nowrap;
 }
 #server_setting > div > div:last-child,
 fieldset > div > div:last-child {

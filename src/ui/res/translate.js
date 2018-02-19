@@ -5,24 +5,29 @@ dangoco client page loader
 */
 
 'use strict';
-const translateField=/^\{\{(.+?)\}\}$/;
+const translateField=/\{\{(.+?)\}\}/g;
 const remote=require('electron').remote;
 
 window.__=remote.getGlobal('__');
 window.i18n=remote.getGlobal('i18n');
 
+function translate(match,string){
+	let _t=__(string);
+	console.debug('trans:',string,_t);
+	return _t;
+}
+function checkTranslate(e){
+	let toTrans=e.getAttribute('trans').split(';')
+	toTrans.forEach(trans=>{
+		if(trans){
+			e.setAttribute(trans,e.getAttribute(trans).replace(translateField,translate));
+		}else{
+			e.innerHTML=e.innerHTML.replace(translateField,translate);
+		}
+	});
+}
 window.addEventListener('load',()=>{
 	document.querySelectorAll('[trans]').forEach(e=>{
-		let trans=e.getAttribute('trans');
-		let a=(trans?e.getAttribute(trans):e.innerHTML).match(translateField);
-		if(a){
-			let _t=__(a[1]);
-			if(trans){
-				e.setAttribute(trans,_t);
-			}else{
-				e.innerHTML=_t;
-			}
-			console.debug('trans:',a[1],_t);
-		}
+		checkTranslate(e);
 	});
 });

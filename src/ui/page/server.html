@@ -7,29 +7,29 @@
 	<div id="server_info">
 		<form id="server_setting" onsubmit="return false;">
 			<div>
-				<div><span trans>{{Server Name}}</span>&nbsp;:&nbsp;</div>
+				<div trans>{{Server Name}}&nbsp;:&nbsp;</div>
 				<div><input type="text" name="serverName" setting-item="name"></div>
 			</div>
 			<div>
-				<div><span trans>{{Server Address}}</span>&nbsp;:&nbsp;</div>
+				<div trans>{{Server Address}}&nbsp;:&nbsp;</div>
 				<div><input type="text" name="serverAddress" placeholder="ws(s)://xxx" setting-item="address" default=""></div>
 			</div>
 			<div>
-				<div><span trans>{{User Name}}</span>&nbsp;:&nbsp;</div>
+				<div trans>{{User Name}}&nbsp;:&nbsp;</div>
 				<div><input type="text" name="user" setting-item="user" default=""></div>
 			</div>
 			<div>
-				<div><span trans>{{Password}}</span>&nbsp;:&nbsp;</div>
+				<div trans>{{Password}}&nbsp;:&nbsp;</div>
 				<div><input type="password" name="password" setting-item="password" default=""></div>
 			</div><br>
 			<fieldset>
 				<legend trans>{{Custom Options}}</legend>
 				<div>
-					<div><label title="{{_desc_encrypt_}}" trans="title"><span trans>{{Encryption}}</span></label>&nbsp;:&nbsp;</div>
+					<div title="{{_desc_encrypt_}}" trans="title;">{{Encryption}}&nbsp;:&nbsp;</div>
 					<div><select name="algorithm" setting-item="algo" default="none"></select></div>
 				</div>
 				<div>
-					<div><label for="keyLength" title="{{_desc_keyLength_}}" trans="title"><span trans>{{Randomkey Length}}</span></label>&nbsp;:&nbsp;</div>
+					<div title="{{_desc_keyLength_}}" trans="title;">{{Randomkey Length}}&nbsp;:&nbsp;</div>
 					<div><input type="number" name="keyLength" value=33 min="1" setting-item="keyLength" default="33"/></div>
 				</div>
 				<div>
@@ -37,11 +37,11 @@
 					<div><label for="disableDeflate" title="{{_desc_disableDeflate_}}" trans="title"><input type="checkbox" name="disableDeflate" id="disableDeflate" setting-item="disableDeflate"><span trans>{{Disable Deflate}}</span></label></div>
 				</div>
 				<div>
-					<div><label title="{{_desc_idle_}}" trans="title"><span trans>{{Idle Timeout}}</span></label>&nbsp;:&nbsp;</div>
+					<div title="{{_desc_idle_}}" trans="title;">{{Idle Timeout}}&nbsp;:&nbsp;</div>
 					<div><input type="number" min="0" name="idleTimeout" value="15" setting-item="idle" default="15"/></div>
 				</div>
 				<div>
-					<div><label title="{{_desc_keepBrokenTunnel_}}" trans="title"><span trans>{{Keep BrokenTunnel}}</span></label>&nbsp;:&nbsp;</div>
+					<div title="{{_desc_keepBrokenTunnel_}}" trans="title;">{{Keep BrokenTunnel}}&nbsp;:&nbsp;</div>
 					<div><input type="number" min="0" name="keepBrokenTunnelTimeout" value="0" setting-item="keepBrokenTunnel" default="0"/></div>
 				</div>
 				<div>
