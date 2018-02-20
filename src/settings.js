@@ -19,7 +19,7 @@ app.on('active',(page='server')=>{
 		width: 535, 
 		height: 548,
 		show: false,
-		// resizable:false,
+		resizable:false,
 		maximizable:false,
 		// minimizable:false,
 		title:`${__('dangoco')}`,
