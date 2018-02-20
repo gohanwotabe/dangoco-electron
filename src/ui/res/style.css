@@ -91,7 +91,10 @@ input:not([type="checkbox"]) {
 }
 
 input[type="checkbox"] {
-    margin-left: 0;
+    margin: 0;
+    margin-right: 2px;
+    width: 13px;
+    height: 13px;
 }
 
 select {
@@ -105,12 +108,14 @@ select:not([size]) {
 }
 
 select[size] {
+    overflow: auto;
+    padding: 4px;
     width: 164px;
-    padding: 4px 0 4px 4px;
 }
 
 option {
     padding: 2px 4px;
+    border-radius: 2px;
 }
 
 table {
@@ -150,10 +155,6 @@ table th {
     text-align: left;
     font-weight: 700;
     background-color: #E7E7E7;
-}
-
-label {
-    white-space: nowrap;
 }
 
 fieldset {
