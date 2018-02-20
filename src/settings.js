@@ -17,7 +17,7 @@ app.on('active',(page='server')=>{
 	}
 	settingsWindow = new BrowserWindow({
 		width: 535, 
-		height: 548,
+		height: 400,
 		show: false,
 		resizable:false,
 		maximizable:false,

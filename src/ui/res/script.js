@@ -43,8 +43,8 @@ window.addEventListener('load',()=>{
 			t.classList.add('active');
 			displayingPage=t.id;
 			location.hash='#'+t.id;
-			remote.getCurrentWindow().setTitle(`${t.title} - ${__('dangoco')}`);
 			requestAnimationFrame(()=>{
+				remote.getCurrentWindow().setTitle(`${t.title} - ${__('dangoco')}`);
 				settingWindow.setContentSize(subPage.offsetWidth+$('#side').offsetWidth,subPage.offsetHeight,false);
 			});
 		}

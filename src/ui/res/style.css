@@ -170,8 +170,7 @@ legend {
 }
 
 body {
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden;
     width: 100vw;
     height: 100vh;
     cursor: default;
@@ -214,8 +213,8 @@ body {
 }
 
 .sub_page {
-    padding: 10px;
     display: inline-block;
+    padding: 10px;
     min-width: 350px;
     min-height: calc(var(--side_button_size) * 5 - 20px);
 }
@@ -226,6 +225,8 @@ body {
 
 /* Main */
 #main {
+    max-height: 1px;
+    max-width: 1px;
     margin-left: var(--side_button_size);
 }
 
@@ -265,7 +266,12 @@ fieldset > div:last-child label {
 }
 
 /* Socks Page */
-#socks_settings_frame {}
+#socks_settings_frame {
+    width: 575px;
+}
+
+/*  */
 
 /* Info Page */
-#info_frame {}
+#info_frame {
+}
